@@ -1,27 +1,61 @@
-suspend fun main() {
+import Numbers.Numbers
+import SubNumbers;
+import Operators
+
+
+fun main() {
+
 
     val message = GetInfoAwait()
 
-    val num1 = Maths.NumbersList().getNumbers(5, 9);
-    val num2 = Maths.NumbersList().getNumbers(2, 10);
-    val op = Maths.Operators().operators();
-    println(message.all(num1, op, num2));
 
-    val a = Maths.AddNumbers(num1, num2)
-    val s = Maths.SubNumbers(num1, num2);
-    val m = Maths.MultiplyNumbers().Multiply(num1, num2);
+    val Names1 = NamesOne.NameOne();
+    val Names2 = NamesTwo.NameTwo();
+
+    val num1 = Numbers();
+    val num2 = Numbers()
+
+    val op = Operators().operators();
+
+    val a = AddNumbers(num1, num2)
+    val s = SubNumbers(num1, num2);
+    val m = MultiplyNumbers(num1, num2)
+
+
+    val resultName = when(num1 < 3) {
+        true -> NamesOne.NameOne();
+        false -> NamesOne.NameOnes();
+    }
+
+    val resultTwo = when(num1 < 3) {
+        true -> NamesTwo.NameTwo()
+        false -> NamesTwo.NameTwos()
+    }
+
+    println("$resultName had ")
 
 
     println("Enter Answer: ")
     val number = readLine()
+
     if (op.equals("+")) {
 
         println("Correct That: $num1 + $num2 = ${a.add(num1, num2)}")
     }
 
+    else if (op == "+") {
+
+        println("Correct Answer: $num1 + $num2 = ${a.add(num1, num2)}")
+    }
+
     if (op.equals("-")) {
 
-        println("Correct That: $num1 - $num2 = ${s.Subtract(num1, num2)}")
+        println("Correct That: $num1 - $num2 = ${s.subtract(num1, num2)}")
+    }
+
+    else if (op == "-") {
+
+        println("Correct Answer: $num1 - $num2 = ${s.subtract(num1, num2)}")
     }
 
 
@@ -30,6 +64,10 @@ suspend fun main() {
         println("Correct That: $num1 * $num2 = ${m}")
     }
 
+    else if (op == "*") {
+
+        println("Correct Answer: $num1 * $num2 = ${m}")
+    }
 
 
 }
